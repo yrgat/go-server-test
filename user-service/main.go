@@ -39,6 +39,11 @@ func main() {
 		for _, user := range users {
 			userList = append(userList, user)
 		}
+		userList = append(userList, User{
+			ID:       "1",
+			Username: "John Doe",
+			Email:    "john.doe@example.com",
+		})
 		return c.JSON(userList)
 	})
 
