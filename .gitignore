@@ -1,0 +1,63 @@
+# Go specific
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+go.work
+
+# Go workspace specific
+/bin/
+/pkg/
+
+# Go coverage and test files
+coverage.txt
+coverage.html
+
+# Go Debug files
+debug
+*.debug
+__debug_bin
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+*.env
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Binary files
+test-service/test-service
+user-service/user-service
+
+# Dependency directories
+vendor/
+
+# Log files
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# System Files
+.DS_Store
+Thumbs.db 
