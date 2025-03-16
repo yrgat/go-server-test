@@ -5,20 +5,22 @@ metadata:
   namespace: gotst
   annotations:
     kubernetes.io/ingress.class: "traefik"
-    traefik.ingress.kubernetes.io/rule-type: "PathPrefixStrip"
 spec:
   rules:
-  - host: goapp.com
+  - host: test.goapp.com
     http:
       paths:
-      - path: /test
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: test-service
             port:
               number: 80
-      - path: /users
+  - host: users.goapp.com
+    http:
+      paths:
+      - path: /
         pathType: Prefix
         backend:
           service:
