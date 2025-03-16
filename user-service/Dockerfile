@@ -3,14 +3,14 @@ FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 
-# Copy go mod and sum files
-COPY go.mod ./
+# Copy go mod files from root
+COPY go.mod go.sum ./
 
 # Download dependencies
 RUN go mod download
 
-# Copy source code
-COPY . .
+# Copy the service source code
+COPY user-service/*.go ./
 
 # Build the application
 RUN CGO_ENABLED=0 GOOS=linux go build -o user-service
