@@ -16,6 +16,15 @@ func main() {
 		AppName: "test-service",
 	})
 
+	// Root endpoint
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.JSON(fiber.Map{
+			"service":   "test-service",
+			"version":   "1.0.0",
+			"endpoints": []string{"/", "/health", "/hello"},
+		})
+	})
+
 	// Health check endpoint
 	app.Get("/health", func(c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{
@@ -24,8 +33,8 @@ func main() {
 		})
 	})
 
-	// Test endpoint
-	app.Get("/test", func(c *fiber.Ctx) error {
+	// Hello endpoint (renamed from /test)
+	app.Get("/hello", func(c *fiber.Ctx) error {
 		return c.JSON(fiber.Map{
 			"message": "Hello from test-service",
 			"time":    time.Now().Format(time.RFC3339),
